@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;600&display=swap');
+
+.Logo {
+    font-family: 'Dancing Script', cursive;
+    text-decoration: none;
+
+
+    .logo__fits {
+        font-family: 'Hind', sans-serif;
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+}
