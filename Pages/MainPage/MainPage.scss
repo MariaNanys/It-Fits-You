@@ -1,0 +1,52 @@
+.MainPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 769px) {
+        flex-direction: row;
+        margin: 50px 20px 0;
+        align-items: flex-start;
+    }
+}
+
+.MainPage-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-size: 1.5rem;
+    width: 70vw;
+
+    @media (min-width: 769px) {
+        width: 30vw;
+    }
+    
+
+    h1 {
+        font-size: 3rem;
+        font-family: 'Kalam', cursive;
+    }
+
+    .Button-main-page {
+        width: 10rem;
+        align-self: end;
+        background-color: #88B9FE;
+    }
+    
+}
+
+.MainPage-infographic {
+    background-image: url('https://iv.pl/images/3930c974975d85deaa9e1a4c0edd350f.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 60vw;
+    height: 35vh;
+    margin: 0 auto;
+
+    @media (min-width: 769px) {
+        margin-top: 50px;
+        height: 70vh;
+        width: 80vw;
+        float: right;
+        }
+}
