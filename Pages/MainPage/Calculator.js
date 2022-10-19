@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect} from "react";
-import { TextInput, Select} from '@mantine/core';
+import { TextInput, Select , Button} from '@mantine/core';
+import { useForm } from '@mantine/form';
 import "./Calculator.scss";
-import { Button } from '@mantine/core';
+
 
 export function Calculator() {
     const womenValues = {
@@ -26,6 +27,7 @@ export function Calculator() {
     const [resultBMI, setResultBMI] = useState({ value:'' });
     const [show, setShow] = useState({ value:'' });
     const [protein, setProtein] = useState({ value:'' });
+    const [resultMinProteins, setMinProtein] = useState({ value:'' });
     const [minFat, setMinFat] = useState({ value:'' });
     const [maxFat, setMaxFat] = useState({ value:'' });
     const [minCarb, setMinCarb] = useState({ value:'' });
@@ -75,23 +77,27 @@ export function Calculator() {
             event.preventDefault();
         }
     }
-    function CPMWomen() {
-        const sumCPM = ((womenValues.palIndicator + (womenValues.weightIndicator * weight.value) + (womenValues.heightIndicator * height.value) - (womenValues.ageIndicator * age.value)) * activity.value);
+    function CPMWomen(values) {
+        const sumCPM = ((womenValues.palIndicator + (womenValues.weightIndicator * values.weight) + (womenValues.heightIndicator * values.height) - (womenValues.ageIndicator * values.age)) * values.activity);
         return parseInt(sumCPM,10);
     }
-    function CPMMen() {
-        const sumCPM = ((menValues.palIndicator + (menValues.weightIndicator * weight.value) + (menValues.heightIndicator * height.value) - (menValues.ageIndicator * age.value)) * activity.value);
+    function CPMMen(values) {
+        const sumCPM = ((menValues.palIndicator + (menValues.weightIndicator * values.weight) + (menValues.heightIndicator * values.height) - (menValues.ageIndicator * values.age)) * values.activity);
         return parseInt(sumCPM,10);
     }
-    function bmi() {
-        const newHeight = height.value / 100;
+    function bmi(values) {
+        const newHeight = values.height / 100;
         const powerOfHeight = Math.pow(newHeight, 2);
-        const bmi = (weight.value / powerOfHeight);
+        const bmi = (values.weight / powerOfHeight);
         return bmi.toFixed(2);
     }
 
-    function proteins() {
-        const maxProteins = (weight.value * 1.6);
+    function minProteins(values) {
+        return parseInt(values.weight,10);
+    }
+
+    function proteins(values) {
+        const maxProteins = (values.weight * 1.6);
         return parseInt(maxProteins,10);
     }
     function minFats() {
@@ -110,16 +116,17 @@ export function Calculator() {
         const maxCarbs = ((0.70 * resultCPM.value) / 4);
         return parseInt(maxCarbs,10);
     }
-    function sumValues() {
-        if(height.value !=='' && weight.value !== '' && age.value !== '' && activity.value !== '' && gender.value !== '') {
+    function sumValues(values) {
+        if(values.height !=='' && values.weight !== '' && values.age !== '' && values.activity !== '' && values.gender !== '') {
             setShow({value: true});
-            if (gender.value === 'f') {
-                setResultCPM({value: CPMWomen()});
+            if (values.gender === 'f') {
+                setResultCPM({value: CPMWomen(values)});
             } else {
-                setResultCPM({value: CPMMen()});
+                setResultCPM({value: CPMMen(values)});
             }
-            setResultBMI({value: bmi()});
-            setProtein({value: proteins()});
+            setResultBMI({value: bmi(values)});
+            setProtein({value: proteins(values)});
+            setMinProtein({value: minProteins(values)});
         } 
     }
     useEffect(() => {
@@ -129,99 +136,99 @@ export function Calculator() {
         setMaxCarb({value: maxCarbs()});
     }, [resultCPM]);
 
-    function FormHeight() {
+    function Form() {
+
+        const form = useForm({
+            initialValues: { height: '', weight: '', age: '', activity: '', gender: ''},
+            validate: {
+              height: (value) => (value.length < 1 ? 'Wypełnij pole' : null),
+              weight: (value) => (value.length < 1 ? 'Wypełnij pole' : null),
+              age: (value) => (value.length < 1 ? 'Wypełnij pole' : null),
+              activity: (value) => (value.length < 1 ? 'Wypełnij pole' : null),
+              gender: (value) => (value.length < 1 ? 'Wypełnij pole' : null),
+            },
+          });
+    
+        
         return (
-          <TextInput
-            placeholder="Wpisz wzrost w cm ..."
-            type="number"
-            label="Wzrost"
-            radius="md"
-            ref={heightInput} 
-            withAsterisk
-            value={height.value}
-            onChange={(e)=>handleChangeHeight(e)}
-            onKeyDown={validateNumber}
-          />
-        );
-      }
-    function FormWeight() {
-        return (
-          <TextInput
-            placeholder="Wpisz wagę w kg ..."
-            type="number"
-            label="Waga"
-            radius="md"
-            ref={weightInput} 
-            withAsterisk
-            value={weight.value}
-            onChange={(e)=>handleChangeWeight(e)}
-            onKeyDown={validateNumber}
-          />
-        );
-      }
-    function FormAge() {
-        return (
-          <TextInput
-            placeholder="Wpisz wiek ..."
-            type="number"
-            label="Wiek"
-            radius="md"
-            ref={ageInput}
-            withAsterisk
-            value={age.value}
-            onChange={(e)=>handleChangeAge(e)}
-            onKeyDown={validateNumber}
-          />
-        );
-      }
-    function SelectActivity() {
-        return (
-            <Select
-            label="Aktywność"
-            withAsterisk
-            placeholder="Wybierz..."
-            ref={activityInput} 
-            value={activity.value}
-            onChange={(e)=>handleChangeActivity(e)}
-            radius="md"
-            data={[
-                { value: '1.2', label: 'Prawie brak' },
-                { value: '1.25', label: 'Lekka aktywność' },
-                { value: '1.5', label: 'Umiarkowana aktywność' },
-                { value: '1.75', label: 'Duża aktywność' },
-                { value: '2', label: 'Bardzo duża aktywność' },
-            ]}
-            />
-        );
-    }
-    function SelectGender() {
-    return (
-        <Select
-        label="Płeć"
-        withAsterisk
-        placeholder="Wybierz..."
-        ref={genderInput} 
-        value={gender.value}
-        onChange={(e)=>handleChangeGender(e)}
-        radius="md"
-        data={[
-            {value: 'm', label: 'Mężczyzna' },
-            {value: 'f', label: 'Kobieta' },
-        ]}
-        />
-    );
-    }
-    function ButtonCalculate() {
-        return (
-          <Button
-          className="ButtonCalculate ButtonCalculate-active"
-          type="submit"
-          variant="light"
-          radius="md"
-          size="lg"
-          onClick={sumValues}>
-            Oblicz zapotrzebowanie
-          </Button>
+            <form onSubmit={form.onSubmit((values) => sumValues(values))}>
+                <TextInput
+                    placeholder="Wpisz wzrost w cm ..."
+                    type="number"
+                    label="Wzrost"
+                    radius="md"
+                    ref={heightInput} 
+                    withAsterisk
+                    value={height.value}
+                    onChange={(e)=>handleChangeHeight(e)}
+                    onKeyDown={validateNumber}
+                    {...form.getInputProps('height')}
+                />
+                <TextInput
+                    placeholder="Wpisz wagę w kg ..."
+                    type="number"
+                    label="Waga"
+                    radius="md"
+                    ref={weightInput} 
+                    withAsterisk
+                    value={weight.value}
+                    onChange={(e)=>handleChangeWeight(e)}
+                    onKeyDown={validateNumber}
+                    {...form.getInputProps('weight')}
+                />
+                <TextInput
+                    placeholder="Wpisz wiek ..."
+                    type="number"
+                    label="Wiek"
+                    radius="md"
+                    ref={ageInput}
+                    withAsterisk
+                    value={age.value}
+                    onChange={(e)=>handleChangeAge(e)}
+                    onKeyDown={validateNumber}
+                    {...form.getInputProps('age')}
+                />
+                <Select
+                    label="Aktywność"
+                    withAsterisk
+                    placeholder="Wybierz..."
+                    ref={activityInput} 
+                    value={activity.value}
+                    onChange={(e)=>handleChangeActivity(e)}
+                    radius="md"
+                    data={[
+                        { value: '1.2', label: 'Prawie brak' },
+                        { value: '1.25', label: 'Lekka aktywność' },
+                        { value: '1.5', label: 'Umiarkowana aktywność' },
+                        { value: '1.75', label: 'Duża aktywność' },
+                        { value: '2', label: 'Bardzo duża aktywność' },
+                    ]}
+                    {...form.getInputProps('activity')}
+                    />
+                     <Select
+                        label="Płeć"
+                        withAsterisk
+                        placeholder="Wybierz..."
+                        ref={genderInput} 
+                        value={gender.value}
+                        onChange={(e)=>handleChangeGender(e)}
+                        radius="md"
+                        data={[
+                            {value: 'm', label: 'Mężczyzna' },
+                            {value: 'f', label: 'Kobieta' },
+                        ]}
+                        {...form.getInputProps('gender')}
+                        />
+                         <Button
+                        className="ButtonCalculate ButtonCalculate-active"
+                        type="submit"
+                        variant="light"
+                        radius="md"
+                        size="lg"
+                        >
+                            Oblicz zapotrzebowanie
+                        </Button>
+            </form>
         );
       }
 
@@ -231,12 +238,7 @@ export function Calculator() {
             <div className={`calculator ${hideFormClass}`}>
                 <h2>Wprowadź dane</h2>
                 <div className="calculator-inputs">
-                    <FormHeight />
-                    <FormWeight />
-                    <FormAge />
-                    <SelectActivity />
-                    <SelectGender />
-                    <ButtonCalculate />
+                    <Form />
                 </div>
             </div>
                 <div className={`result-of-calculator ${showClass}`}>
@@ -254,7 +256,7 @@ export function Calculator() {
                     <div className="carbs-fats-proteins">
                         <div className="proteins">
                             <span>Białka</span>
-                            <span>{weight.value} g - {protein.value} g</span>
+                            <span>{resultMinProteins.value} g - {protein.value} g</span>
                             <span>10% - 16%</span>
                         </div>
                         <div className="fats">
