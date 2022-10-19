@@ -1,0 +1,115 @@
+.calculator__content {
+    display: flex;
+    gap: 50px;
+    flex-direction: column-reverse;
+
+    @media (min-width: 769px) {
+        flex-direction: row;
+        margin-top: 50px;
+        margin-left: 50px;
+    }
+
+
+    .calculator__infograph {
+        background-image: url('https://iv.pl/images/294947fdd137b61b7c06deed47dea8e9.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 60vw;
+        height: 35vh;
+        margin: 0 auto;
+
+        @media (min-width: 769px) {
+            margin-top: 50px;
+            height: 70vh;
+            width: 80vw;
+        }
+        
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-bottom: 1rem;
+        width: 20rem;
+        color: #88B9FE;
+        border-radius: 10px;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+
+        @media (min-width: 769px) {
+            
+        }
+        
+    }
+}
+
+.calculator {
+    margin: 0 auto;
+    width: 20rem;
+
+    @media (min-width: 769px) {
+        margin-right: 50px;
+    }
+}
+
+.calculator-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+
+.mantine-pggm6s {
+    width: 17.3rem;
+}
+
+.mantine-7u23zf {
+    height: 3rem;
+    margin-top: 2rem;
+    color: #88B9FE;
+}
+
+.ButtonCalculate-active {
+    background-color: #88B9FE;
+    color: white;
+
+    &:hover {
+        background-color: #9FC7FE;
+    }
+}
+.result-of-calculator {
+    display: none;
+    font-size: 2rem;
+    width: 80vw;
+    margin: 0 auto;
+}
+.show {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.hide {
+    display: none;
+}
+
+.result_bmi-and-cpm {
+    font-size: 3.5rem;
+    color: #88B9FE;
+    margin-top: 1rem;
+}
+
+.carbs-fats-proteins {
+    display: flex;
+    justify-content: space-around;
+
+    .proteins, .fats, .carbs {
+        width: 8rem;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.2rem;
+        align-items: center;
+    }
+}

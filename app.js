@@ -2,16 +2,17 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";  
 import { Layout } from "./Layout/Layout";
-import { Articles } from "./Pages/Articles/Articles"
-import { Home } from "./Components/Home/Home"
+import { Calculator } from "./Pages/MainPage/Calculator";
+import { Articles } from "./Pages/Articles/Articles";
+
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route element={<Layout />}>
-                    <Route path="/" element={< Home/>} />
-                    <Route path="/articles" element={<Articles />} />
+                    <Route path="/" element={< Calculator/>} />
+                    <Route path="/Articles" element={<Articles />} />
                 </Route>  
             </Routes>
         </Router>

@@ -5,9 +5,11 @@ import "./logo.scss";
 export function Logo() {
     return(
     <Link className="Logo" to="/">
-        <span>It </span>
-        <span className="logo__fits">Fits</span>
-        <span> You</span>
+        <div className="Logo__part">
+            <span>It </span>
+            <span> You</span>
+       </div>
+       <span className="logo__fits">Fits</span>
     </Link>
     )
 }
