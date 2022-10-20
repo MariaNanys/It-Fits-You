@@ -32,6 +32,7 @@ export function Calculator() {
     const [maxFat, setMaxFat] = useState({ value:'' });
     const [minCarb, setMinCarb] = useState({ value:'' });
     const [maxCarb, setMaxCarb] = useState({ value:'' });
+    const [arrowClass, setArrowClass] = useState({value:'' });
 
     const showClass = show.value ? 'show' : '';
     const hideFormClass = show.value ? 'hide' : '';
@@ -92,6 +93,29 @@ export function Calculator() {
         return bmi.toFixed(2);
     }
 
+    function arrowBmi() {
+        let arrowClassName = '';
+        if (resultBMI.value <= 18.49 ) {
+            arrowClassName = 'calculator__infograph-under-weight';
+        }
+        if (resultBMI.value >= 18.5 && resultBMI.value < 24.99 ) {
+            arrowClassName = 'calculator__infograph-normal-weight';
+        }
+        if (resultBMI.value >= 25 && resultBMI.value < 29.99 ) {
+            arrowClassName = 'calculator__infograph-over-weight';
+        }
+        if (resultBMI.value >= 30 && resultBMI.value < 39.99 ) {
+            arrowClassName = 'calculator__infograph-obese';
+        }
+        if (resultBMI.value >= 40 ) {
+            arrowClassName = 'calculator__infograph-extreme-obese';
+        } 
+        if(resultBMI.value==='') {
+            arrowClassName = '';
+        }
+        setArrowClass({value: arrowClassName});
+    }
+
     function minProteins(values) {
         return parseInt(values.weight,10);
     }
@@ -134,7 +158,8 @@ export function Calculator() {
         setMaxFat({value: maxFats()});
         setMinCarb({value: minCarbs()});
         setMaxCarb({value: maxCarbs()});
-    }, [resultCPM]);
+        arrowBmi();
+    }, [resultCPM, resultBMI]);
 
     function Form() {
 
@@ -234,45 +259,45 @@ export function Calculator() {
 
     return (
         <div className="calculator__content">
-            <div className="calculator__infograph"></div>
+            <div className={`calculator__infograph ${arrowClass.value}`}>
+                <div className="calculator-arrow"></div>
+            </div>
             <div className={`calculator ${hideFormClass}`}>
                 <h2>Wprowadź dane</h2>
                 <div className="calculator-inputs">
                     <Form />
                 </div>
             </div>
-                <div className={`result-of-calculator ${showClass}`}>
-                    <span>
-                        Twoje BMI wynosi:
-                        <div className="result_bmi-and-cpm">
+            <div className={`result-of-calculator ${showClass}`}>
+                <span>
+                Twoje BMI wynosi:
+                    <div className="result_bmi-and-cpm">
                         {resultBMI.value}
-                        </div>
-                    </span>
-                    <span>
-                        Twoja całkowita przemiana materii wynosi:
-                        <div className="result_bmi-and-cpm">{resultCPM.value} kcal
-                        </div>
-                    </span>
-                    <div className="carbs-fats-proteins">
-                        <div className="proteins">
-                            <span>Białka</span>
-                            <span>{resultMinProteins.value} g - {protein.value} g</span>
-                            <span>10% - 16%</span>
-                        </div>
-                        <div className="fats">
-                            <span>Tłuszcze</span>
-                            <span>{minFat.value} g - {maxFat.value} g</span>
-                            <span>20% - 30%</span>
-                        </div>
-                        <div className="carbs">
-                            <span>Węglowodany</span>
-                            <span>{minCarb.value} g - {maxCarb.value} g</span>
-                            <span>54% - 70%</span>
-                        </div>
-                        <div></div>
-                        <div></div>
+                    </div>
+                </span>
+                <span>
+                Twoja całkowita przemiana materii wynosi:
+                    <div className="result_bmi-and-cpm">{resultCPM.value} kcal
+                    </div>
+                 </span>
+                <div className="carbs-fats-proteins">
+                    <div className="proteins">
+                        <span>Białka</span>
+                        <span>{resultMinProteins.value} g - {protein.value} g</span>
+                        <span>10% - 16%</span>
+                    </div>
+                    <div className="fats">
+                        <span>Tłuszcze</span>
+                        <span>{minFat.value} g - {maxFat.value} g</span>
+                        <span>20% - 30%</span>
+                    </div>
+                    <div className="carbs">
+                        <span>Węglowodany</span>
+                        <span>{minCarb.value} g - {maxCarb.value} g</span>
+                        <span>54% - 70%</span>
                     </div>
                 </div>
+            </div>
         </div>
     )
 }

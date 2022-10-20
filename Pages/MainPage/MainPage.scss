@@ -7,6 +7,7 @@
         flex-direction: row;
         margin: 50px 20px 0;
         align-items: flex-start;
+        gap: 30px;
     }
 }
 
@@ -31,6 +32,7 @@
         width: 10rem;
         align-self: end;
         background-color: #88B9FE;
+        margin-top: 30px;
     }
     
 }
@@ -45,8 +47,8 @@
 
     @media (min-width: 769px) {
         margin-top: 50px;
-        height: 70vh;
-        width: 80vw;
+        height: 60vh;
+        width: 70vw;
         float: right;
         }
 }

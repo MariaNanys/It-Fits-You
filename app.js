@@ -5,6 +5,7 @@ import { Layout } from "./Layout/Layout";
 import { MainPage } from "./Pages/MainPage/MainPage";
 import { Calculator } from "./Pages/MainPage/Calculator";
 import { Articles } from "./Pages/Articles/Articles";
+import { Contact } from "./Pages/Contact/Contact";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/" element={<MainPage />} />
                     <Route path="/Calculator" element={<Calculator />} />
                     <Route path="/Articles" element={<Articles />} />
+                    <Route path="/Contact" element={<Contact />} />
                 </Route>  
             </Routes>
         </Router>

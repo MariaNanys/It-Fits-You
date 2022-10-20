@@ -14,7 +14,6 @@
 
 .nav-menu {
     display: inherit;
-
     z-index: -1;
     width: 100%;
 
@@ -49,6 +48,7 @@
     height: 300px;
     align-items: center;
     gap: 0 30px;
+    font-size: 1.2rem;
 
     .my-non-active {
         text-decoration: none;

@@ -1,0 +1,50 @@
+.Contact-content {
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    position: relative;
+}
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.Contact-inputs {
+    margin-left: 10rem;
+}
+.mantine-TextInput-root {
+    width: 25vw;
+}
+
+.mantine-Textarea-root {
+    width: 60vw;
+}
+
+.Contact-infographic {
+    background-image: url('https://iv.pl/images/d8ad1fb7fe56965e1234f537b91ed9ba.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20vw;
+    height: 45vh;
+    position: absolute;
+    right: 25%;
+
+    @media (min-width: 769px) {
+        margin-top: 50px;
+
+        }
+}
+
+.Constact-message-sent {
+    display: none;
+}
+
+.showSendMessage {
+    display: flex;
+    margin: 10rem;
+}
+.hideForm {
+    display: none;
+}
