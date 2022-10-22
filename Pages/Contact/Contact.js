@@ -30,6 +30,7 @@ export function Contact() {
         return (
         <form onSubmit={form.onSubmit(() => showAndHide())} className="form-contact">
             <TextInput
+            className="form-input-contact"
             label="Podaj swój email"
             icon={<IconAt />}
             placeholder="Twój email"
@@ -37,12 +38,14 @@ export function Contact() {
             {...form.getInputProps('email')}
             />
             <TextInput
+            className="form-input-contact"
             placeholder="Tytuł..."
             label="Podaj tytuł wiadomości"
             radius="md"
             {...form.getInputProps('title')}
             />
             <Textarea
+            className="form-textarea-contact"
             placeholder="Treść wiadomości..."
             label="Podaj treść wiadomości"
             radius="md"

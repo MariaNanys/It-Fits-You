@@ -36,7 +36,7 @@
             border-right: 0.7rem solid transparent;
             border-bottom: 1rem solid #5877A4;
             border-radius: 0.5rem;
-
+            transition: 3s;
             transform-origin: 50% 100%;
             animation: slide 5s ease-in-out infinite;
             
@@ -60,7 +60,8 @@
     }
 
     .calculator__infograph-under-weight:before {
-        animation: slide1 5s ease-in-out  !important;
+        animation: slide1 5s ease-in-out infinite !important;
+        transition: 3s;
             
         @keyframes slide1 {
             0%,
@@ -71,41 +72,45 @@
     }
     .calculator__infograph-normal-weight:before {
         animation: slide2 5s ease-in-out infinite !important;
-            
+        
         @keyframes slide2 {
             0%,
             100% {
                 transform: rotate(-45deg);
+                transition: 3s;
             }
         }
     }
     .calculator__infograph-over-weight:before {
         animation: slide3 5s ease-in-out infinite !important;
-            
+        
         @keyframes slide3 {
             0%,
             100% {
                 transform: rotate(0deg);
+                transition: 3s;
             }
         }
     }
     .calculator__infograph-obese:before {
         animation: slide4 5s ease-in-out infinite !important;
-            
+        
         @keyframes slide4 {
             0%,
             100% {
                 transform: rotate(45deg);
+                transition: 3s;
             }
         }
     }
     .calculator__infograph-extreme-obese:before {
         animation: slide5 5s ease-in-out infinite !important;
-            
+        
         @keyframes slide5 {
             0%,
             100% {
                 transform: rotate(85deg);
+                transition: 3s;
             }
         }
     }
@@ -158,6 +163,9 @@
     color: #88B9FE;
 }
 
+.ButtonCalculate-active {
+    width: 20rem;
+}
 .ButtonCalculate-active {
     background-color: #88B9FE;
     color: white;

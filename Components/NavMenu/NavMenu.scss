@@ -1,8 +1,8 @@
 .nav-menu-active {
-    z-index: -1;
+    z-index: 1;
     @media (min-width: 769px) {
         display: inherit;
-        z-index: 0;
+        z-index: 1;
         top: 0;
         
     }
@@ -30,6 +30,7 @@
     align-self: center;
     background-color: white;
     top: -205px;
+    transition-duration: 1s;
     
 
     @media (min-width: 769px) {
