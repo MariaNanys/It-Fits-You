@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from '@mantine/core';
 import './MainPage.scss';
 
@@ -24,6 +25,7 @@ export function MainPage() {
         <div className="MainPage">
             <div className="MainPage-text">
                 <h1>Witaj!</h1>
+                <Link to="/oops">Let's go</Link>
                 <span>
                     Cieszę się, że jesteś.
                     </span>

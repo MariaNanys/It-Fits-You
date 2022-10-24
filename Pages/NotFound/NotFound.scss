@@ -1,0 +1,94 @@
+.page-404 {
+    height: 85vh;
+}
+.content-404 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 80vh;
+
+    .content-404-image {
+        height: 60vh;
+    }
+
+    .content-404-title {
+        font-size: 8rem;
+        font-weight: 600;
+        color: #88B9FE;
+        position: absolute;
+        left: 40%;
+    }
+
+    .content-404-first-text {
+        font-weight: 600;
+    }
+    
+}
+
+.content-game {
+    display: none;
+}
+
+.hide-error {
+    display: none;
+}
+
+.show-game-instruction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.game-instruction {
+    background-color: #E7F1FE;
+    border: .5rem solid #CFE3FE;
+    border-radius: 2rem;
+    position: relative;
+}
+
+.mantine-h0vjos {
+    height: 40vh;
+}
+
+.game-instruction-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem;
+
+    span {
+        line-height: 1.5rem;
+    }
+}
+
+.game-instruction-title {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.Button-game {
+    background-color: #88b9fe;
+    color: white;
+}
+
+.hide-game-instruction {
+    display: none;
+}
+
+.game-with-cards {
+    display: none;
+    width: 100vw;
+    height: 85%;
+}
+
+.show-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scaleY(600px) scaleX(0.7);
+    transition-duration: 2s;position: absolute;
+    z-index: -1;
+}

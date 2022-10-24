@@ -1,0 +1,46 @@
+.Game-Cards-content {
+    width: 100vw;
+    height: 89%;
+}
+
+.content-cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7F1FE;
+    border: .5rem solid #CFE3FE;
+    border-radius: 2rem;
+    width: 30rem;
+    height: 25rem;
+}
+
+.Game-Cards-instruction{ 
+    display: flex;
+    align-self: flex-end;
+    width: 100vw;
+    height: 4rem;
+}
+
+.first-row, .second-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.first-cards, .second-cards, .third-cards, .fourth-cards {
+    position: relative;
+}
+
+.card {
+    width: 4rem;
+    height: 4rem;
+    background-color: #fff;
+}
+
+.first-card-picture {
+    background-color: lightblue;
+}
+.first-card-without-picture {
+    background-color: blue;
+}
