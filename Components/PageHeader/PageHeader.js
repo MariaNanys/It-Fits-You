@@ -16,9 +16,9 @@ export function PageHeader() {
        <div className="PageHeader">
         <div className="PageHeader__Logo-Burger">
              <Logo />
-            <BurgerButton onChange={handleChange} /> 
+            <BurgerButton onChange={handleChange} update={stateBurger}/> 
         </div>
-        <NavMenu state={stateBurger}/>
+        <NavMenu state={stateBurger} update={handleChange}/>
        </div>
     )
 }

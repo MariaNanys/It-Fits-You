@@ -1,51 +1,90 @@
 .Contact-content {
     display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-    position: relative;
+    height: 90vh;
     justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+
+    @media(min-width: 769px) {
+        flex-wrap: nowrap;
+    }
+
+    h2 {
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-bottom: 1rem;
+        width: 20rem;
+        color: #88B9FE;
+    }
 }
 
 .form-contact {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    
 }
 
-.Contact-inputs {
-    margin-left: 10rem;
-}
 .form-input-contact {
-    width: 25vw;
+    width: 80vw;
+
+    @media (min-width: 769px) {
+        width: 25vw;
+    }
 }
 
 .form-textarea-contact {
-    width: 60vw;
+    width: 80vw;
+
+    @media(min-width: 769px) {
+        width: 60vw;
+    }
 }
 
 .Contact-infographic {
-    background-image: url('https://iv.pl/images/d8ad1fb7fe56965e1234f537b91ed9ba.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 20vw;
-    height: 45vh;
-    position: absolute;
-    right: 25%;
+    height: fit-content;
+    width: 200px;
+    float: right;
 
     @media (min-width: 769px) {
-        margin-top: 50px;
-
-        }
+        height: fit-content;
+        width: 250px;
+        margin-top: 4rem;
+        margin-left: -17rem;
+        
+    }
 }
+
+.mantine-7u23zf {
+    background-color: #88B9FE;
+    color: white;
+    }
+
 
 .Constact-message-sent {
     display: none;
+
+    &>h2 {
+
+        @media(min-width: 769px) {
+            padding-left: 2rem;
+        }
+        
+    }
 }
 
 .showSendMessage {
     display: flex;
-    margin: 10rem;
+    margin-top: 9rem;
+    width: 0;
+
+    @media (min-width: 769px) {
+        margin-left: -6rem;
+        width: 2vw;
+    }
 }
+
 .hideForm {
     display: none;
 }

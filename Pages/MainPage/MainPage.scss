@@ -38,17 +38,14 @@
 }
 
 .MainPage-infographic {
-    background-image: url('https://iv.pl/images/3930c974975d85deaa9e1a4c0edd350f.png');
-    background-repeat: no-repeat;
-    background-size: contain;
     width: 60vw;
     height: 35vh;
     margin: 0 auto;
 
     @media (min-width: 769px) {
         margin-top: 50px;
-        height: 60vh;
-        width: 70vw;
+        height: auto;
+        width: 50vw;
         float: right;
         }
 }

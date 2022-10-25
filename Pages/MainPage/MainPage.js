@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from '@mantine/core';
+import mainPagePic from "./mainpage.png";
 import './MainPage.scss';
 
 
@@ -36,7 +37,7 @@ export function MainPage() {
                 </span>
                 <Buttons />
             </div>
-            <div className="MainPage-infographic"></div>
+            <img src={mainPagePic} className="MainPage-infographic" />
         </div>
     )
 }

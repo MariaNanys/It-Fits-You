@@ -21,36 +21,37 @@ import cucumber from "./data/018-cucumber.png";
 import avocado from "./data/019-avocado.png";
 import broccoli from "./data/020-broccoli.png";
 
-const cardsFood = [ fruits, pineapple, vegetables, vegetables2, fruits2, bellPepper, dish, watermelon, tomatoes, eggplant, peas, radish, pumkin, onion, carrot, cabbage, strawberry, cucumber, avocado, broccoli];
 
 export function GameCards() {
+
+    
     return(
         <div className="Game-Cards-content">
             <div className="content-cards">
                 <div className="first-row">
                     <div className="first-cards">
                         <div className="first-card-picture card">
-                            <img src={cardsFood.fruits} alt="vegetables" /> </div>
-                        <div className="firts-card-without-picture card"></div>
+                            <img src={fruits} alt="vegetables" /> </div>
+                        <div className="first-card-without-picture card card-without"></div>
                     </div>
                     <div className="second-cards">
                         <div className="second-card-picture card"></div>
-                        <div className="second-card-without-picture card"></div>
+                        <div className="second-card-without-picture card card-without"></div>
                     </div>
                 </div>
                 <div className="second-row">
                     <div className="third-cards">
                         <div className="third-card-picture card"></div>
-                        <div className="third-card-without-picture card"></div>
+                        <div className="third-card-without-picture card card-without"></div>
                     </div>
                     <div className="fourth-cards">
                         <div className="fourth-card-picture card"></div>
-                        <div className="fourth-card-without-picture card"></div>
+                        <div className="fourth-card-without-picture card card-without"></div>
                     </div>
                 </div>
                 
             </div>
-            <span className="Game-Cards-instruction">Zapamiętaj umiejscowienie obrazka.</span>
+            <span className="Game-Cards-instruction">Zapamiętaj miejsce obrazka.</span>
         </div>
     )
 }

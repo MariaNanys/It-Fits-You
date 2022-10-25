@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextInput, Textarea, Button } from '@mantine/core';
 import { IconAt } from '@tabler/icons';
 import { useForm } from '@mantine/form';
+import contactPic from "./contact.png";
 import "./Contact.scss";
 
 
@@ -74,9 +75,7 @@ export function Contact() {
             <div className={`Constact-message-sent ${showSendedMessage}`}>
                 <h2>Wiadomość została wysłana!</h2>
             </div>
-            <div className="Contact-infographic">
-            </div>
-            
+            <img className="Contact-infographic" src={contactPic} /> 
         </div>
     )
 }
