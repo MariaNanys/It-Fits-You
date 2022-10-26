@@ -3,42 +3,50 @@
     gap: 30px;
     flex-direction: column-reverse;
 
-    @media (min-width: 769px) {
+
+    @media (min-width: 950px) {
         flex-direction: row;
         margin-top: 50px;
-        margin-left: 50px;
+        margin-left: 50px; 
+        margin-right: 2rem;    
+        height: 100%;
     }
 
 
     .calculator__infograph {
-        background-image: url('https://iv.pl/images/b3147e60940dce9040dcbd9578647ee1.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        width: 60vw;
-        height: 35vh;
+        width: 500px;
+    height: 250px;
         margin: 0 auto;
         position: relative;
+
+        .calculator__infograph-scale {
+            position: absolute;
+            height: 100%;
+            
+            @media (min-width: 950px) {
+                width: 90%;
+                height: 90%;
+                padding-top: 1.5rem;
+            }
+        }        
 
 
         @media (min-width: 769px) {
             margin-top: 50px;
             height: 20rem;
             width: 37rem;
-            padding-bottom: 3.5rem;
-            padding-right: 1.5rem;
         }
+    }
 
-        &:before {
-            height: 2rem;
-            content: " ";
+        .calculator-arrow {
+            height: 5rem;
             position: absolute;
-            border-left: 0.7rem solid transparent;
-            border-right: 0.7rem solid transparent;
-            border-bottom: 1rem solid #5877A4;
-            border-radius: 0.5rem;
             transition: 3s;
             transform-origin: 50% 100%;
             animation: slide 5s ease-in-out infinite;
+            left: 45.5%;
+            bottom: 30%;
+            transform-origin: 50% 92.5%;
             
             @keyframes slide {
                 0%,
@@ -51,15 +59,14 @@
                 }
               }
 
-                border-bottom: 6rem solid #5877A4;
-                border-radius: 1rem;
-                left: 50%;
-                bottom: 39.3%;
+              @media (min-width: 769px) and (max-width: 950px) {
+                left: 49.5%;
+            }   
         }
       }       
-    }
+    
 
-    .calculator__infograph-under-weight:before {
+    .calculator__infograph-under-weight {
         animation: slide1 5s ease-in-out infinite !important;
         transition: 3s;
             
@@ -70,7 +77,7 @@
             }
         }
     }
-    .calculator__infograph-normal-weight:before {
+    .calculator__infograph-normal-weight {
         animation: slide2 5s ease-in-out infinite !important;
         
         @keyframes slide2 {
@@ -81,7 +88,7 @@
             }
         }
     }
-    .calculator__infograph-over-weight:before {
+    .calculator__infograph-over-weight{
         animation: slide3 5s ease-in-out infinite !important;
         
         @keyframes slide3 {
@@ -92,7 +99,7 @@
             }
         }
     }
-    .calculator__infograph-obese:before {
+    .calculator__infograph-obese {
         animation: slide4 5s ease-in-out infinite !important;
         
         @keyframes slide4 {
@@ -103,7 +110,7 @@
             }
         }
     }
-    .calculator__infograph-extreme-obese:before {
+    .calculator__infograph-extreme-obese {
         animation: slide5 5s ease-in-out infinite !important;
         
         @keyframes slide5 {
@@ -163,19 +170,20 @@
 .ButtonCalculate-active {
     width: 20rem;
 }
-.ButtonCalculate-active {
+.ButtonCalculate-active, .ButtonRecalculate {
     background-color: #88B9FE;
     color: white;
 
     &:hover {
-        background-color: #9FC7FE;
+        background-color: #bad6fc;
     }
 }
 .result-of-calculator {
     display: none;
     font-size: 2rem;
-    width: 37.8%;
+    width: 88%;
     align-self: center;
+    text-align: center;
 
     @media (min-width: 769px) {
         align-items: normal;
@@ -188,9 +196,10 @@
     gap: 30px;
     align-items: center;
 
-    @media (min-width: 769px) {
+    @media (min-width: 950px) {
         align-items: normal;
         margin-right: 1rem;
+        width: 50vw;
     }
 }
 .hide {
@@ -215,15 +224,35 @@
         font-size: 1.2rem;
         align-items: center;
         gap: 1rem;
+        padding: 1rem;
+        position: relative;
+        
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50px; 
+            border: 5px solid transparent;
+            background: linear-gradient(45deg,#5489cb,#bcebff) border-box;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) padding-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            mask-composite: exclude;
+        }
+        }
     }
+
+
+.carbs {
+
+    &:first-child {
+        padding-left: inherit
+    }
+    
 }
 
-.proteins {
 
-    img {
-    position: absolute;
-    height: auto;
-    width: 4rem;
-
-    }
-}

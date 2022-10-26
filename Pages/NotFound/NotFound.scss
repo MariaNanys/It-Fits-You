@@ -67,6 +67,11 @@
 .game-instruction-title {
     width: 100%;
     margin-bottom: 2rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-bottom: 1rem;
+    color: #88B9FE;
 }
 
 .Button-game {
@@ -90,5 +95,5 @@
     align-items: center;
     transform: scaleY(600px) scaleX(0.7);
     transition-duration: 2s;position: absolute;
-    z-index: -1;
+
 }

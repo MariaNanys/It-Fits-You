@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect} from "react";
 import { TextInput, Select , Button} from '@mantine/core';
 import { useForm } from '@mantine/form';
+import resultBMIimage from './resultBMI.png';
+import arrowImage from './arrow.png';
+import backgroundImage from "./background.png";
 import "./Calculator.scss";
 
 
@@ -143,6 +146,7 @@ export function Calculator() {
     function sumValues(values) {
         if(values.height !=='' && values.weight !== '' && values.age !== '' && values.activity !== '' && values.gender !== '') {
             setShow({value: true});
+
             if (values.gender === 'f') {
                 setResultCPM({value: CPMWomen(values)});
             } else {
@@ -150,16 +154,56 @@ export function Calculator() {
             }
             setResultBMI({value: bmi(values)});
             setProtein({value: proteins(values)});
-            setMinProtein({value: minProteins(values)});
-        } 
+            setMinProtein({value: minProteins(values)});   
+        }
     }
+
     useEffect(() => {
         setMinFat({value: minFats()});
         setMaxFat({value: maxFats()});
         setMinCarb({value: minCarbs()});
         setMaxCarb({value: maxCarbs()});
         arrowBmi();
+        const elem = localStorage.getItem('arrayWithResults');
+        console.log(elem);
+        if (elem !== null) {
+            const results = JSON.parse(elem); 
+            setResultBMI({value: results.bmi});
+            setResultCPM({value: results.cpm});
+            setMinFat({value: results.minFat});
+            setProtein({value: results.maxProtein});
+            setMinProtein({value: results.minProtein});
+            setMinCarb({value: results.minCarb});
+            setMaxCarb({value: results.maxCarb});
+            setShow({value: true});
+        } else {
+            if(resultBMI.value!=='') {
+                    const arrayWithResults = { 
+                    bmi: resultBMI.value,
+                    cpm: resultCPM.value,
+                    minProtein: resultMinProteins.value,
+                    maxProtein: protein.value,
+                    minFat: minFats(),
+                    maxFat: maxFats(),
+                    minCarb: minCarbs(),
+                    maxCarb: maxCarbs()
+                };
+                localStorage.setItem('arrayWithResults', JSON.stringify(arrayWithResults));
+            }
+        }
     }, [resultCPM, resultBMI]);
+    
+    function resetResults() {
+        setResultBMI({value:''});
+            setResultCPM({value:''});
+            setMinFat({value: ''});
+            setProtein({value: ''});
+            setMinProtein({value: ''});
+            setMinCarb({value: ''});
+            setMaxCarb({value: ''});
+        localStorage.removeItem('arrayWithResults');
+        setShow({ value:'' });
+    }
 
     function Form() {
 
@@ -259,8 +303,9 @@ export function Calculator() {
 
     return (
         <div className="calculator__content">
-            <div className={`calculator__infograph ${arrowClass.value}`}>
-                <div className="calculator-arrow"></div>
+            <div className="calculator__infograph">
+                <img className="calculator__infograph-scale" src={resultBMIimage} alt="result-bmi" />
+                <img className={`calculator-arrow ${arrowClass.value}`} src={arrowImage} />
             </div>
             <div className={`calculator ${hideFormClass}`}>
                 <h2>Wprowadź dane</h2>
@@ -297,6 +342,16 @@ export function Calculator() {
                         <span>54% - 70%</span>
                     </div>
                 </div>
+                <Button
+                    onClick={resetResults}
+                    className="ButtonRecalculate ButtonRecalculate-active"
+                    type="submit"
+                    variant="light"
+                    radius="md"
+                    size="lg"
+                >
+                Oblicz ponownie
+                </Button>
             </div>
         </div>
     )
