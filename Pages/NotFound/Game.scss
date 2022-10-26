@@ -10,24 +10,38 @@
     margin: 0 auto;
 }
 
-.game-over {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
 .game-over-hidden {
     display: none;
 }
 
-.game-over {
+.game-over, .finished-game, .game-continue {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     background-color: #E7F1FE;
     border: .5rem solid #CFE3FE;
     border-radius: 2rem;
     width: 30.5rem;
     height: 27rem;
+    align-items: center;
+    justify-content: center;
+
+    h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding-bottom: 1rem;
+        color: #88B9FE;
+        text-align: center;
+        line-height: 2.2rem;
+    }
+}
+
+.finished-game {
+    border: none;
+    background-color: transparent;
+}
+
+.game-continue {
+    background-color: #0f2c51;
 }
 
 .content-rows {
@@ -55,7 +69,7 @@
     position: absolute;
     background-color: #E7F1FE;
     bottom: -12px;
-    color: grey;
+    color: #0f2c51;
     font-size: 1.3rem;
     font-weight: lighter;
     text-align: center;
@@ -78,6 +92,12 @@
     transition: 0.5s;
     cursor: pointer;
     width: 10rem;
+
+    &[disabled] {
+        cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.7;
+    } 
 }
 
 .card {
@@ -86,24 +106,45 @@
     position: absolute;
     border: 4px solid white;
     border-radius: 30px;
-    backface-visibility: hidden;
+
+
+    img {
+        width: 60%;
+    }
     
 }
 
-.first-card-picture {
+.first-card-picture, .second-card-picture, .third-card-picture, .fourth-card-picture {
     background-color: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+    z-index: 1;
 }
 
+
 .flipped-card {
-    display: none;
+    cursor: pointer;
+    z-index: 1;
+    
+}
+
+.transform-pic-card {
+    transform: rotateZ(180deg);
+    transform: rotateX(180deg);
+    transition-duration: 2s;
+    z-index: 2;
+
+}
+
+.transform-nonpic-card {
+    transform: rotateZ(180deg);
+    transform: rotateX(180deg);
+    transition-duration: 2s;
 }
 
 .first-card-without-picture {
-    z-index: 1;
+   
 }
 .card-without {
     background-color: lightsteelblue;

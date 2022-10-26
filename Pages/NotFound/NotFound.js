@@ -7,8 +7,8 @@ import "./NotFound.scss";
 import { GameCards } from "./Game";
 
 export function NotFound() {
-    const [show, setShow] = useState(true);
-    const [showGame, setShowGame] = useState(true);
+    const [show, setShow] = useState(false);
+    const [showGame, setShowGame] = useState(false);
     const showGameInstruction = show ? 'show-game-instruction' : '';
     const hide404Page = show ? 'hide-error' : '';
     const hideGameInstruction = showGame ? 'hide-game-instruction' : '';
@@ -19,8 +19,7 @@ export function NotFound() {
     }
 
     function startGameFunction() {
-       
-        return setShowGame(true);
+        setShowGame(true);
     }
     
 
@@ -68,7 +67,7 @@ export function NotFound() {
             Pamięciowe obroty
             </h2>
             <span>
-            Proszę o zapamiętanie gdzie znajdują się symbole, a następnie śledzić jeśli zmienią pozycję.
+            Proszę o zapamiętanie gdzie znajdują się obrazki, a następnie śledzić jeśli zmienią pozycję.
             </span>
             <Button
                 onClick={startGameFunction}
@@ -110,7 +109,7 @@ export function NotFound() {
                     <CarouselGame />
                 </div>
                 <div className={`game-with-cards ${startGame}`}>
-                    <GameCards />
+                    <GameCards startGame={showGame}/>
                 </div>
             </div>
         </div>

@@ -1,6 +1,13 @@
+.Contact-content--footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 87vh
+}
+
 .Contact-content {
     display: flex;
-    height: 90vh;
+    
     justify-content: center;
     flex-wrap: wrap;
     margin-top: 1rem;
@@ -87,4 +94,18 @@
 
 .hideForm {
     display: none;
+}
+
+footer {
+    text-align: center;
+    height: 3rem;
+    background-color: #E7F1FE;
+    padding-top: 2rem;
+    width: 100vw;
+    margin-left: -8rem;
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
 }

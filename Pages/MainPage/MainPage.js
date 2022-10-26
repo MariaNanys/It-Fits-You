@@ -4,8 +4,6 @@ import { Button } from '@mantine/core';
 import mainPagePic from "./mainpage.png";
 import './MainPage.scss';
 
-
-
 export function MainPage() {
     
     function Buttons() {

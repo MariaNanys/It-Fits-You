@@ -67,15 +67,19 @@ export function Contact() {
    
 
     return (
-        <div className="Contact-content">
-            <div className={`Contact-inputs ${hideFormMessage}`}>
-                <h2>Masz pytania? Napisz do mnie</h2>
-                <ContactForm />
+        <div className="Contact-content--footer">
+            <div className="Contact-content">
+                <div className={`Contact-inputs ${hideFormMessage}`}>
+                    <h2>Masz pytania? Napisz do mnie</h2>
+                    <ContactForm />
+                </div>
+                <div className={`Constact-message-sent ${showSendedMessage}`}>
+                    <h2>Wiadomość została wysłana!</h2>
+                </div>
+                <img className="Contact-infographic" src={contactPic} /> 
             </div>
-            <div className={`Constact-message-sent ${showSendedMessage}`}>
-                <h2>Wiadomość została wysłana!</h2>
-            </div>
-            <img className="Contact-infographic" src={contactPic} /> 
+            <footer><a href="https://www.freepik.com/author/pch-vector">All mages by pch.vector</a> on Freepik
+            </footer>
         </div>
     )
 }

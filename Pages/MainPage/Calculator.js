@@ -165,7 +165,6 @@ export function Calculator() {
         setMaxCarb({value: maxCarbs()});
         arrowBmi();
         const elem = localStorage.getItem('arrayWithResults');
-        console.log(elem);
         if (elem !== null) {
             const results = JSON.parse(elem); 
             setResultBMI({value: results.bmi});

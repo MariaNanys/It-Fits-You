@@ -7,17 +7,18 @@
     @media (min-width: 950px) {
         flex-direction: row;
         margin-top: 50px;
-        margin-left: 50px; 
+        margin-left: .5rem; 
         margin-right: 2rem;    
         height: 100%;
+        gap: 0;
     }
 
 
     .calculator__infograph {
         width: 500px;
-    height: 250px;
-        margin: 0 auto;
+        height: 250px;
         position: relative;
+        margin: 0 auto;
 
         .calculator__infograph-scale {
             position: absolute;
@@ -126,10 +127,6 @@
     margin: 0 auto;
     width: 20rem;
 
-    @media (min-width: 769px) {
-        
-    }
-
     h2 {
         font-size: 2rem;
         text-transform: uppercase;
@@ -141,10 +138,6 @@
         align-items: center;
         display: flex;
         justify-content: center;
-
-        @media (min-width: 769px) {
-            
-        }
         
     }
 }
@@ -198,7 +191,6 @@
 
     @media (min-width: 950px) {
         align-items: normal;
-        margin-right: 1rem;
         width: 50vw;
     }
 }
