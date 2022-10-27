@@ -98,11 +98,15 @@
 
 footer {
     text-align: center;
-    height: 3rem;
+    height: 2rem;
     background-color: #E7F1FE;
-    padding-top: 2rem;
-    width: 100vw;
-    margin-left: -8rem;
+    padding-top: 1rem;
+    width: 110vw;
+
+    @media (min-width: 769px) {
+        height: 3rem;
+        padding-top: 2rem;
+    }
 
     a {
         text-decoration: none;

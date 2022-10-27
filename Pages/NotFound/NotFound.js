@@ -57,7 +57,7 @@ export function NotFound() {
             Pamięciowe obroty
             </h2>
             <span>
-            Dlatego to ćwiczenie trenuje umiejętność zapamiętywania i przywołania informacji na mapie. Obraca się ona często tak jak robi się to kierując się do celu.
+            Dlatego to ćwiczenie trenuje umiejętność zapamiętywania i przywołania informacji na mapie. Obraca się ona często tak, jak robi się to kierując się do celu.
             </span>
             </div>
         </Carousel.Slide>
@@ -91,7 +91,7 @@ export function NotFound() {
             <div className={`content-404 ${hide404Page}`}>
                 <img src={errorPage} className="content-404-image" alt="error-page" />
                 <span className="content-404-first-text">Ojej! Coś poszło nie tak.</span>
-                <span>Ale nie martw się, Twoim ciałem zajmiemy się następnym razem. Teraz możeny skupić się na umyśle.</span>
+                <span>Ale nie martw się, Twoim ciałem zajmiemy się następnym razem. Teraz możemy skupić się na umyśle.</span>
                 <span>Zaczynamy?</span>
                 <Button
                     onClick={hideAndShow}
@@ -101,7 +101,7 @@ export function NotFound() {
                     radius="md"
                     size="lg"
                 >
-                Zaczynamy?
+                Tak!
                 </Button>
             </div>
             <div className={`content-game ${showGameInstruction}`}>
