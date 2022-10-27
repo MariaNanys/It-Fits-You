@@ -3,7 +3,6 @@ import { TextInput, Select , Button} from '@mantine/core';
 import { useForm } from '@mantine/form';
 import resultBMIimage from './resultBMI.png';
 import arrowImage from './arrow.png';
-import backgroundImage from "./background.png";
 import "./Calculator.scss";
 
 

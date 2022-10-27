@@ -112,5 +112,3 @@ export function Articles() {
         </div>
     )
 }
-
-export default Articles;
