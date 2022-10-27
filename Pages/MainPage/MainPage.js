@@ -24,7 +24,6 @@ export function MainPage() {
         <div className="MainPage">
             <div className="MainPage-text">
                 <h1>Witaj!</h1>
-                <Link to="/oops">Let's go</Link>
                 <span>
                     Cieszę się, że jesteś.
                     </span>
