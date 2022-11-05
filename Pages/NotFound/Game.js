@@ -110,7 +110,7 @@ export function GameCards({startGame}) {
     }, [counter, startGame]);
 
     useEffect(() => {
-        if (timer === 0 ) {
+        if (timer === 0 && !hideBoardContinue) {
             setRotateGameBoard(false);
             setHideBoard(true);
         }
