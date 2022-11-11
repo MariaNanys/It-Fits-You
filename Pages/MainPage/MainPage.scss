@@ -4,8 +4,9 @@
     align-items: center;
 
     @media (min-width: 769px) {
+        max-width: 1350px;
         flex-direction: row;
-        margin: 50px 20px 0;
+        margin: 50px auto;
         align-items: flex-start;
         gap: 30px;
     }
@@ -21,8 +22,6 @@
     @media (min-width: 769px) {
         width: 30vw;
     }
-    
-
     h1 {
         font-size: 5rem;
         font-family: 'Kalam', cursive;

@@ -1,10 +1,9 @@
 .nav-menu-active {
     z-index: 9;
-@media (min-width: 769px) {
+    @media (min-width: 769px) {
         display: inherit;
         z-index: 1;
         top: 0;
-        
     }
 
     transform: translate(0, 305px);
